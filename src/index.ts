@@ -1,4 +1,6 @@
-require('dotenv-safe').config();
+require('dotenv-safe').config({
+  allowEmptyValues: true,
+});
 
 import express from 'express';
 import { AddressInfo } from 'net';
