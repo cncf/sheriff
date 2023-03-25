@@ -240,7 +240,11 @@ async function main() {
         chalk.cyan(badUser),
       );
     }
-    return await builder.send();
+    if(IS_DRY_RUN){
+      throw new Error("Team configuration contains users not in the target org")
+    } else {
+      return await builder.send();
+    }
   }
 
   const missingConfigRepos = allRepos.filter(
